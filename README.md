@@ -11,6 +11,8 @@ This is a simple PHP validation class that can be used to validate form inputs w
 - Google reCAPTCHA validation
 - File Extension Type
 - File Size
+- Date format
+- DateTime format
 
 ## Installation
 
@@ -26,7 +28,8 @@ $POST = [
     'name' => 'John Doe',
     'website_name' => 'Example Website',
     'website_id' => '123',
-    'date' => '2023-05-15 14:30',
+    'date' => '2023-05-15',
+    'datetime' => '2023-05-15 14:30:00',
     'phone' => '123-456-7890',
     'area_code' => '123',
     'g-recaptcha-response' => 'RECAPTCHA_RESPONSE',
@@ -48,7 +51,8 @@ $validator = Validator::make($POST, [
     'name' => 'required|max:70',
     'website_name' => 'required|max:70',
     'website_id' => 'required',
-    'date' => 'required',
+    'date' => 'required|dateFormat:Y-m-d',
+    'datetime' => 'required|datetimeFormat:Y-m-d H:i:s',
     'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
     'area_code' => 'required',
     'g-recaptcha-response' => 'required|captcha',
@@ -82,6 +86,8 @@ if ($validator->fails()) {
 - `captcha`: The field must be a valid Google reCAPTCHA response.
 - `fileSize:[Byte]` : File size must be less than X
 - `fileType:[Ext1,Ext2]` : The file format must be in the following formats Ext1,Ext2
+- `dateFormat:[FORMAT]` : The field does not match the format [FORMAT]
+- `datetimeFormat:[FORMAT]` : The field does not match the format [FORMAT]
 
 ## Google reCAPTCHA Integration
 

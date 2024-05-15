@@ -119,4 +119,20 @@ class Validator
             }
         }
     }
+
+    protected function validateDateFormat($field, $param)
+    {
+        $date = DateTime::createFromFormat($param, $this->data[$field]);
+        if (!$date || $date->format($param) !== $this->data[$field]) {
+            $this->errors[$field][] = "The $field field does not match the format $param.";
+        }
+    }
+
+    protected function validateDatetimeFormat($field, $param)
+    {
+        $date = DateTime::createFromFormat($param, $this->data[$field]);
+        if (!$date || $date->format($param) !== $this->data[$field]) {
+            $this->errors[$field][] = "The $field field does not match the datetime format $param.";
+        }
+    }
 }
