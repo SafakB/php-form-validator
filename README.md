@@ -16,6 +16,7 @@ This is a simple PHP validation class that can be used to validate form inputs w
 
 ## 🎯 Roadmap
 
+- E-mail format validation
 - Multiple Selectbox minimum and maximum
 - Cloudflare Turnstile
 - CSRF Token
