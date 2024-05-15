@@ -17,8 +17,6 @@ Simply include the `Validator.php` file in your project.
 ```php
 require_once 'Validator.php';
 
-require_once 'Validator.php';
-
 // Sample POST data
 $POST = [
     'name' => 'John Doe',
