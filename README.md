@@ -14,6 +14,12 @@ This is a simple PHP validation class that can be used to validate form inputs w
 - Date format
 - DateTime format
 
+## 🎯 Roadmap
+
+- Multiple Selectbox minimum and maximum
+- Cloudflare Turnstile
+- CSRF Token
+
 ## Installation
 
 Simply include the `Validator.php` file in your project.
