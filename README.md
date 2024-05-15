@@ -9,6 +9,8 @@ This is a simple PHP validation class that can be used to validate form inputs w
 - Maximum length validation
 - Regular expression validation
 - Google reCAPTCHA validation
+- File Extension Type
+- File Size
 
 ## Installation
 
@@ -78,6 +80,8 @@ if ($validator->fails()) {
 - `regex`:/pattern/: The field must match the given regular expression.
 - `min:X`: The field must be at least X characters long.
 - `captcha`: The field must be a valid Google reCAPTCHA response.
+- `fileSize:[Byte]` : File size must be less than X
+- `fileType:[Ext1,Ext2]` : The file format must be in the following formats Ext1,Ext2
 
 ## Google reCAPTCHA Integration
 
