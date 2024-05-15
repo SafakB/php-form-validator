@@ -45,7 +45,10 @@ $validator = Validator::make($POST, [
     'g-recaptcha-response' => 'required|captcha',
     'message' => 'required',
 ]);
+```
 
+### Validate 
+```php
 // Check if validation fails
 if ($validator->fails()) {
     echo json_encode([
