@@ -16,20 +16,25 @@ Simply include the `Validator.php` file in your project.
 
 ```php
 require_once 'Validator.php';
+```
 
-// Sample POST data
+## Sample POST data
+```php
 $POST = [
     'name' => 'John Doe',
     'website_name' => 'Example Website',
     'website_id' => '123',
-    'date' => '2023-05-15T14:30',
+    'date' => '2023-05-15 14:30',
     'phone' => '123-456-7890',
     'area_code' => '123',
     'g-recaptcha-response' => 'RECAPTCHA_RESPONSE',
     'message' => 'Hello, this is a message'
 ];
+```
 
-// Define validation rules
+## Usage
+### Define validation rules
+```php
 $validator = Validator::make($POST, [
     'name' => 'required|max:70',
     'website_name' => 'required|max:70',
@@ -40,9 +45,6 @@ $validator = Validator::make($POST, [
     'g-recaptcha-response' => 'required|captcha',
     'message' => 'required',
 ]);
-
-// Format date
-$mail_date = str_replace("T", " ", $POST['date']);
 
 // Check if validation fails
 if ($validator->fails()) {
