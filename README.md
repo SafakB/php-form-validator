@@ -5,9 +5,9 @@ This is a simple PHP validation class that can be used to validate form inputs w
 ## Features
 
 - Required fields
+- Minimum length validation
 - Maximum length validation
 - Regular expression validation
-- Minimum length validation
 - Google reCAPTCHA validation
 
 ## Installation
@@ -28,7 +28,14 @@ $POST = [
     'phone' => '123-456-7890',
     'area_code' => '123',
     'g-recaptcha-response' => 'RECAPTCHA_RESPONSE',
-    'message' => 'Hello, this is a message'
+    'message' => 'Hello, this is a message',
+    'file' => [
+        'name' => 'example.jpg',
+        'type' => 'image/jpeg',
+        'tmp_name' => '/tmp/phpYzdqkD',
+        'error' => 0,
+        'size' => 204800 // 200 KB
+    ]
 ];
 ```
 
@@ -44,6 +51,7 @@ $validator = Validator::make($POST, [
     'area_code' => 'required',
     'g-recaptcha-response' => 'required|captcha',
     'message' => 'required',
+    'file' => 'required|fileSize:204800|fileType:jpg,png,pdf',
 ]);
 ```
 

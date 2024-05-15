@@ -101,4 +101,22 @@ class Validator
             $this->errors[$field][] = "The $field field is invalid.";
         }
     }
+
+    protected function validateFileSize($field, $param)
+    {
+        if (isset($this->data[$field]) && $this->data[$field]['size'] > $param) {
+            $this->errors[$field][] = "The $field file size may not be greater than " . ($param / 1024) . " KB.";
+        }
+    }
+
+    protected function validateFileType($field, $param)
+    {
+        if (isset($this->data[$field])) {
+            $fileType = pathinfo($this->data[$field]['name'], PATHINFO_EXTENSION);
+            $allowedTypes = explode(',', $param);
+            if (!in_array($fileType, $allowedTypes)) {
+                $this->errors[$field][] = "The $field file type must be one of the following: " . implode(', ', $allowedTypes) . ".";
+            }
+        }
+    }
 }
